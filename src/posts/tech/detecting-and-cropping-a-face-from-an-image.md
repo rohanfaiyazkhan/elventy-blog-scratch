@@ -5,11 +5,7 @@ tags: ['machine learning', 'computer vision', 'face detection']
 date: 2021-12-05
 ---
 
-<!-- Excert Start -->
-
 Detecting a face from an image is an important step to many computer vision applications, for instance extracting features from a face using a model like VGGFace2. This tutorial goes over two well known approaches: HAAR Cascade Classifier [^1] using OpenCV and a Convolutional Neural Network, specifically MTCNN [^2].
-
-<!-- Excert End -->
 
 > <small>__Disclaimer__: There is a lot of debate on the ethicality of common use cases of computer vision tasks used on human faces such as emotion detection. There is an abundance of ethically questionable studies that claim to be able to tell a person's characteristics which have rightfully come under criticism. I do not wish to contribute to such work with this tutorial, and hence I do request any AI practitioners and researchers use their ethical reasoning into any application of such technology.</small>
 ## HAAR Cascade Classifier
