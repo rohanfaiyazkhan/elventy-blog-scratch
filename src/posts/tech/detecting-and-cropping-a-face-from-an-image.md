@@ -1,7 +1,6 @@
 ---
 title: Detecting and Cropping a Face from an Image Using HAAR Cascade Classifier and MTCNN
 author: Rohan Faiyaz Khan
-draft: true
 tags: ['machine learning', 'computer vision', 'face detection']
 date: 2021-12-05
 ---
@@ -91,12 +90,67 @@ It is very fast, and does not require a lot of computational resources. This mak
 
 While the performance is good enough for a lot of use cases, it is also very brittle. It is not reliable for detecting a face that is not looking straight at the camera. The algorithm specializes in edge detection, and doesn't work quite when the edges are not obvious, such as in the dark or wearing sunglasses. And yes, it works particularly poorly on people not presenting their assigned gender.
 
+## MTCNN: A Better (and more expensive) Approach
+
+Because of the shortcomings of HAAR Cascade Classifier, several other strategies have been developed particularly using convolutional neural networks. One particular approach combines the best of both approaches- HAAR Cascade and CNN and that is MTCNN as described by Zhang et. al. [^2]. The theory of it is quite fascinating so I do recommend reading the paper but the cliffnotes version of it is that it uses three tasks- face detection, bounding box regression and facial landmark detection to extract a face from an image.
+
+### Why Use MTCNN over HAAR Cascade?
+
+It is far more flexible at detecting various poses, faces with accessories and various types of faces (although it too unfortunately performs disproportionately better for light skinned face versus dark skinned face, the difference is not as stark as with HAAR Cascade). It is perfect if you intend to perform further feature extraction from the faces, for example using a model such as VGGFace2 (as you'll be needing a GPU for that anyway).
+
+### Why Not Use MTCNN?
+
+Unfortunately as MTCNN is much more computationally expensive to run, it needs to be run on a GPU. This makes it less ideal for usage on edge devices and embedded devices. 
+
+## Code
+
+We will using an implementation from [the Facenet library](https://github.com/davidsandberg/facenet) adopted to PyTorch in [facenet-pytorch](https://github.com/timesler/facenet-pytorch).
+
+First install the package.
+
+```bash
+pip install facenet-pytorch
+```
+
+And run in python:
+
+```python
+from facenet_pytorch import MTCNN
+
+from PIL import Image
+import numpy as np
+
+img = Image.open(img_path)
+
+mtcnn = MTCNN(margin=20, keep_all=True, post_process=False, device='cuda:0')
+```
+The parameters to the MTCNN class will represent what task you intend to perform. In my case, I want to extract all detected faces, and hence I set `keep_all=True`. I am also adding a margin of 20 pixels because I want a little more of the face to be included in the crop but this may differ for you. For a more comprehensive list of options for various use cases, please [refer to this notebook](https://www.kaggle.com/timesler/guide-to-mtcnn-in-facenet-pytorch).
+
+```python
+faces = mtcnn(img)
+
+print(faces.shape)
+```
+The detected faces should be of shape `[n, channels, width, height]` where n is the number of faces detected. Width and height can be configured by passing a parameter to the MTCNN class.
+
+To separate (and perhaps visualize the faces in a notebook), you can run:
+
+```python
+# Visualize
+fig, axes = plt.subplots(1, len(faces))
+for face, ax in zip(faces, axes):
+    ax.imshow(face.permute(1, 2, 0).int().numpy())
+    ax.axis('off')
+fig.show()
+```
+
+## Conclusion
+
+In this tutorial, we have discussed two approaches for face detection, HAAR Cascade Classifier and MTCNN. We have also seen code examples of a Python implementation of each, and discussions of the advantages and disadvantages of using one over the other.
+
+
 [^1]: Rainer Lienhart and Jochen Maydt. An extended set of haar-like features for rapid object detection. In Image Processing. 2002. Proceedings. 2002 International Conference on, volume 1, pages I–900. IEEE, 2002.
 
 [^2]: Zhang, K., Zhang, Z., Li, Z., and Qiao, Y. (2016). Joint face detection and alignment using multitask cascaded convolutional networks. IEEE Signal Processing Letters, 23(10):1499–1503.
-
-[^3]: Y. Wang and M. Kosinski, “Deep neural networks are more accurate than humans at detecting sexual orientation from facial images.,” American Psychological Association, vol. 114, no. 2, pp. 460–468, 2017.
-
-[^4]: B. A. y Arcas, “Do algorithms reveal sexual orientation or just expose our stereotypes?,” Jan. 18, 2018. https://medium.com/@blaisea/do-algorithms-reveal-sexual-orientation-or-just-expose-our-stereotypes-d998fafdf477 (accessed Nov. 12, 2021).
 
 
