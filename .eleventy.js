@@ -52,7 +52,11 @@ function extractExcerpt(article) {
   })
 
   // console.debug(excerpt)
-  return excerpt?.trim?.() ?? ''
+  if (excerpt && typeof excerpt === 'string') {
+    return excerpt.trim()
+  } else {
+    return ''
+  }
 }
 
 module.exports = (config) => {
