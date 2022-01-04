@@ -8,13 +8,14 @@ header_img_alt: 'picture of a bicycle'
 author: 'Rohan Faiyaz Khan'
 tags: [react, context, state]
 permalink: '/posts/{{ page.fileSlug }}/index.html'
+excerpt: Almost every advanced feature such as authentication, shopping carts, bookmarks etc. heavily rely on state that multiple components need to be aware of. This can be done by passing state through props but as an application grows this gets complicated very fast. We end up having to pipe state through intermediary components and any change in the shape of the state needs to reflected in all of these components. We also end up with a bunch of code unrelated to the concern of the intermediary component, so we learn to ignore it and the code we ignore is where the bugs hide.
 ---
 
 ## The pains of growing state
 
 In learning React, one of the first challenges I faced was figuring out state management. State is a vital part of any application that has more complexity than a simple blog or brochure site. React has a fantastic toolset to manage component level state both in the case of functional components with hooks, and class based components. However global state is a bit of a different story.
 
-Almost every advanced feature such as authentication, shopping carts, bookmarks etc. heavily rely on state that multiple components need to be aware of. This can be done by passing state through props but as an application grows this gets complicated very fast. We end up having to pipe state through intermediary components and any change in the shape of the state needs to reflected in all of these components. We also end up with a bunch of code unrelated to the concern of the intermediary component, so we learn to ignore it. And if Uncle Bob taught me anything, the code we ignore is where the bugs hide.
+Almost every advanced feature such as authentication, shopping carts, bookmarks etc. heavily rely on state that multiple components need to be aware of. This can be done by passing state through props but as an application grows this gets complicated very fast. We end up having to pipe state through intermediary components and any change in the shape of the state needs to reflected in all of these components. We also end up with a bunch of code unrelated to the concern of the intermediary component, so we learn to ignore it and the code we ignore is where the bugs hide.
 
 ## The solution: Redux
 

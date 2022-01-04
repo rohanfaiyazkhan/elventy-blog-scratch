@@ -21,42 +21,10 @@ String.prototype.stripSurroundingParagraphTag = function () {
   return output
 }
 
-function extractExcerpt(article) {
-  if (!article.hasOwnProperty('templateContent')) {
-    console.warn(
-      'Failed to extract excerpt: Document has no property "templateContent".'
-    )
-    return null
-  }
-
-  let excerpt = null
-  const content = article.templateContent
-
-  // The start and end separators to try and match to extract the excerpt
-  const separatorsList = [
-    { start: '<!-- Excerpt Start -->', end: '<!-- Excerpt End -->' },
-    { start: '<p>', end: '</p>' },
-  ]
-
-  separatorsList.some((separators) => {
-    const startPosition = content.indexOf(separators.start)
-    const endPosition = content.indexOf(separators.end)
-
-    if (startPosition !== -1 && endPosition !== -1) {
-      excerpt = content
-        .substring(startPosition + separators.start.length, endPosition)
-        .trim()
-        .stripSurroundingParagraphTag()
-      return true // Exit out of array loop on first match
-    }
-  })
-
-  // console.debug(excerpt)
-  if (excerpt && typeof excerpt === 'string') {
-    return excerpt.trim()
-  } else {
-    return ''
-  }
+const MARKDOWN_OPTIONS = {
+  html: true,
+  breaks: true,
+  linkify: true,
 }
 
 module.exports = (config) => {
@@ -67,7 +35,6 @@ module.exports = (config) => {
   config.addPassthroughCopy('img')
   config.addPassthroughCopy('video')
 
-  config.addShortcode('excerpt', (article) => extractExcerpt(article))
   config.setBrowserSyncConfig({
     files: ['dist/**/*'],
     open: true,
@@ -162,11 +129,7 @@ module.exports = (config) => {
   config.addLayoutAlias('landing', 'layouts/landing.njk')
 
   // Customize Markdown library and settings:
-  let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-  })
+  let markdownLibrary = markdownIt(MARKDOWN_OPTIONS)
     .use(markdownItAnchor, {
       permalink: true,
       permalinkClass: 'direct-link',
@@ -176,6 +139,14 @@ module.exports = (config) => {
     .use(markdownEmoji)
     .use(markdownFootnotes)
   config.setLibrary('md', markdownLibrary)
+
+  config.setFrontMatterParsingOptions({
+    excerpt: true,
+  })
+
+  config.addFilter('toHTML', (str) => {
+    return new markdownIt(MARKDOWN_OPTIONS).renderInline(str)
+  })
 
   return {
     // Pre-process *.md files with: (default: `liquid`)

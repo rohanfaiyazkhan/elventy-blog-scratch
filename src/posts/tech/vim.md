@@ -4,6 +4,7 @@ date: 2019-08-29T17:53:54+06:00
 author: Rohan Faiyaz Khan
 tags: [vim, beginners, productivity]
 share_img: '/img/vim.jpg'
+excerpt: Vim was something recommended by a friend and I had seen several Youtubers use it. I noticed that watching a skilled Vim user at his job looked nothing short of wizardry. It seemed as if they could bend the text editor to their will at the tap of a few keystrokes. Above all it seemed so... **intimidating**.
 ---
 
 {%- from "components/video/videomacro.njk" import video -%}

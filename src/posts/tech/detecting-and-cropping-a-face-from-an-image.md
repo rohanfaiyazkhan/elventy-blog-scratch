@@ -2,6 +2,7 @@
 title: Detecting and Cropping a Face from an Image Using HAAR Cascade Classifier and MTCNN
 author: Rohan Faiyaz Khan
 tags: ['machine learning', 'computer vision', 'face detection']
+excerpt: Detecting a face from an image is an important step to many computer vision applications, for instance extracting features from a face using a model like VGGFace2. This tutorial goes over two well known approaches- HAAR Cascade Classifier using OpenCV and a Convolutional Neural Network, specifically MTCNN
 date: 2021-12-05
 ---
 

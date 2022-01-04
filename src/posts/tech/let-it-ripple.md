@@ -6,6 +6,7 @@ header_img: '/img/ripples.jpg'
 header_img_alt: 'photo of ripples accross water'
 header_img_caption: Photo by <a href="https://unsplash.com/@doto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Linus Nylund</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 share_img: '/img/ripples.jpg'
+excerpt: We have all seen the ripple effect animation which was part of the material design recommendation. It presents itself as a circle that appears at the point of a click and then enlarges and fades away. As a UI tool, it is a fantastic and familiar way to let the user know that there has been a click interaction.
 tags:
   - 'react'
   - 'ripple'

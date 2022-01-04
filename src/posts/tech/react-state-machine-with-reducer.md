@@ -10,13 +10,8 @@ share_img: '/img/steps.jpg'
 tags: ['react', 'hooks', 'state', 'state machine']
 ---
 
-## Why state machines are relevant to frontend development
-
-<!-- Excerpt Start -->
-
 A finite state machine is not a new concept in the world of computing or mathematics. It is a mathematical model that be in one a few finite states. Transition to a new state could depend on the previous state and a set of external factors.
-
-<!-- Excerpt End -->
+---
 
 This model has become more relevant recently in the field of UI development because we have shifted a lot of the state management to the frontend now. Being a React developer one of the first things I learned was how to manage state inside a component and how to manage global state with Redux. The naive approach I usually used was to have booleans such as `isLoading` and `isError` and render my component based on that.
 

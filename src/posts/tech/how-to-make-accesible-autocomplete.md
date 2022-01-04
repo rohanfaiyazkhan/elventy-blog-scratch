@@ -8,15 +8,12 @@ header_img_alt: 'picture of google search'
 layout: 'blog'
 date: 2020-05-16T20:52:30+06:00
 tags: ['autosuggest', 'combobox', 'a11y', 'javascript']
+excerpt: _Autosuggest_, also referred to semantically as a _Combobox_, is a web component we are all familiar with. It is comprised of an input where a user can type, and a dropdown menu with suggestions that the user can select. Depending on the use case, there may be some extra caveats. Some components will autofill the user's response based on the suggests, some will require that the user select something, some will fire a network request and so on.
 ---
 
 ## What is an Auto Suggest?
 
-<!-- Excerpt Start -->
-
 _Autosuggest_, also referred to semantically as a _Combobox_, is a web component we are all familiar with. It is comprised of an input where a user can type, and a dropdown menu with suggestions that the user can select. Depending on the use case, there may be some extra caveats. Some components will autofill the user's response based on the suggests, some will require that the user select something, some will fire a network request and so on.
-
-<!-- Excerpt End -->
 
 A component such as this is pervasive in the modern web, search boxes, form inputs, and so many things utilize a variation of this component. It is a wonder that there isn't a standard HTML element to handle them.
 

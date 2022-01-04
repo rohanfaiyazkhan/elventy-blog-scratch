@@ -8,7 +8,12 @@
                 <p class="post-date">Written on {{post.date | readableDate}}</p>
                 {% set tags = post.data.tags %}
                 {% include "components/tagslist/tagslist.njk" %}
-                <p class="post-excerpt">"{% excerpt post %}"</p>
+
+                {%- if post.data.excerpt %}
+                    <p class="post-excerpt">{{ post.data.excerpt | toHTML | safe}}</p>
+                {% elif post.data.page.excerpt -%}
+                    <p class="post-excerpt">{{ post.data.page.excerpt | toHTML | safe}}</p>
+                {%- endif -%}
             </article>
         </li>
     {% endfor %}
