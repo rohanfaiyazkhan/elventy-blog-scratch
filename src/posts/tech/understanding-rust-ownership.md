@@ -1,11 +1,9 @@
 ---
-layout: 'blog'
 title: 'Understanding Rust's Ownership Model'
 date: 2022-03-21
 author: 'Rohan Faiyaz Khan'
 tags: ['rust', 'ownership']
-excerpt: ''
-draft: true
+excerpt: 'This article looks at why Rust implements its ownership model, and how this model helps guarantee memory safety without the use of a garbage collector.'
 ---
 
 ## The memory safety to control trade-off
@@ -112,7 +110,79 @@ fn some_func(s: &String) {
 }
 ```
 
-One shortcoming here is that the new value is
+One shortcoming here is that the reference to the value is immutable and attempts to mutate it will throw an error.
+
+```rust
+fn main(){
+    let s1 = String::from("Hello");
+    some_fadd_world_to_strunc(&s1);
+
+    println!({}, s1);
+}
+
+fn add_world_to_str(s: &String) {
+    s.push_str(" world"); // will throw error
+}
+```
+
+To allow mutations we need to ensure that (1) the variable being passed is explicitly stated as being mutable and (2) the reference is a mutable reference. The former is done through the keyword `mut` and the later is done through the keyword `&mut`.
+
+```rust
+fn main(){
+    let mut s1 = String::from("Hello");
+    add_world_to_str(&mut s1);
+
+    println!({}, s1);
+}
+
+fn add_world_to_str(s: &mut String) {
+    s.push_str(" world"); // no longer throws error
+}
+```
+
+There is yet another caveat to this. Firstly there can only be one mutable reference to a variable in scope at any one time. Secondly there cannot be any immutable references to the value if a mutable reference exists and is in scope. This is because users of the immutable reference are not expecting the value to suddenly change.
+
+```rust
+fn main(){
+    let s1 = String::from("hello");
+
+    let ref1 = &mut s1;
+    let ref2 = &mut s1;
+    let ref3 = &s1;
+
+    print("{} {} {}", ref1, ref2, ref3);
+    // Because of this print statement, ref1 is not yet out of scope.
+    // There ref2 and ref3 cannot also borrow s1 in the same scope
+}
+```
+
+A final restriction is that Rust disallows dangling references. This is when a function returns a reference to something no longer in scope. This means it is impossible to have a reference to nothing.
+
+```rust
+fn some_func(){
+    s = String::from("hello");
+    // we are returning a reference to s
+    // even though s will no longer point to any value
+    // this will lead to an error
+    &s
+}
+```
+
+## How this model leads to memory safety
+
+Now that we have covered the ownership model of Rust, we can see how Rust enforces memory safety through it.
+
+1. Rust informs the machine at compile time when allocated memory should be cleared by implicitly calling `drop()` function
+2. Rust implements a type of reference that is guaranteed to point to a valid value in memory
+3. For mutable data types, Rust ensures that only one variable is the owner of the object at any one time and that only one variable will be allowed to mutate it
+
+These ensure some common memory safety bugs are handled out of the box. One such example is data races which occur when two or pointers exist for the same memory, and at least one of them is trying to write to the memory. Rust avoids this by forcing only one mutable reference for a variable at one time.
+
+Another such example is the case of _double free error_. This occurs when two references to the same memory exist, and both are deallocated at the same time. Double de-allocation of memory can lead to memory corruption and unexpected behavior.
+
+## Conclusion
+
+We have gone over what Rust set out to achieve through its unique ownership model, and how the ownership model functions. We have also looked at how some common memory safety issues are dealt with out of the box by Rust. This should give a better position into appreciating what Rust's ownership model is and how to approach it. One thing I haven't discussed here is the potential downsides to the ownership model. There is no doubt that there is a significantly higher learning curve to Rust due to its unique approach, and this may inherently make adopting Rust for a development team more difficult. Furthermore, certain applications such as embedded systems commonly use shared memory accross systems. For such use cases, the ownership model may prove to be a hindrance than a help and there are quite a few developers who resort to using "unsafe" mode in Rust. If considering Rust for a project, one should ask themselves if the benefits of better performance and memory optimizations can justify the additional learning curve and restrictions Rust brings.
 
 [^poplang]: StackOverflow, "Most Loved, Dreaded and Wanted Languages: 2020 Survey" Retrieved 21 March 2022 from https://insights.stackoverflow.com/survey/2020?utm_source=thenewstack&utm_medium=website&utm_campaign=platform#technology-most-loved-dreaded-and-wanted-languages-loved
 [^memsafety]: D. Dhurjati, S. Kowshik, V. Adve and C. Lattner, "Memory safety without runtime checks or garbage collection," in Proceedings of the 2003 ACM SIGPLAN conference on Language, compiler, and tool for embedded systems, New York, NY, USA, 2003.
