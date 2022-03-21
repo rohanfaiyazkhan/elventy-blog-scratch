@@ -1,12 +1,10 @@
 ---
-title: 'Understanding Rust's Ownership Model'
-date: 2022-03-21
+title: "Understanding Rust's Ownership Model"
 author: 'Rohan Faiyaz Khan'
-tags: ['rust', 'ownership']
+date: 2022-03-12
+tags: ['rust', 'memory-management']
 excerpt: 'This article looks at why Rust implements its ownership model, and how this model helps guarantee memory safety without the use of a garbage collector.'
 ---
-
-## The memory safety to control trade-off
 
 _Rust_ has become a popular programming language for developers looking to write highly performant or low system level code. In a StackOverflow survey [^poplang], _Rust_ was voted the most "loved language" by users of the platform.
 
@@ -142,7 +140,7 @@ fn add_world_to_str(s: &mut String) {
 
 There is yet another caveat to this. Firstly there can only be one mutable reference to a variable in scope at any one time. Secondly there cannot be any immutable references to the value if a mutable reference exists and is in scope. This is because users of the immutable reference are not expecting the value to suddenly change.
 
-```rust
+```rust{8}
 fn main(){
     let s1 = String::from("hello");
 
