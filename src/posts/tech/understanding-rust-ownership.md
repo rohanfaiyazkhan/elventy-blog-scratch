@@ -56,7 +56,7 @@ let n2 = n1; // copy value
 println!("{}", n1); // still works
 ```
 
-| Note that if we do need to copy the content of a string into a new variable, we can use the `string.copy()` method.
+> Note that if we do need to copy the content of a string into a new variable, we can use the `string.copy()` method.
 
 When the lifetime of the variable storing the pointer ends, i.e. it becomes out of scope, `drop()` is called on it and it is cleared off the stack. At the same time, when the owner of the allocated heap memory no longer exists, the memory is automatically de-allocated. This removes the need to garbage-collect this memory later.
 
