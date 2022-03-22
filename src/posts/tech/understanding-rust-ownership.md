@@ -140,7 +140,7 @@ fn add_world_to_str(s: &mut String) {
 
 There is yet another caveat to this. Firstly there can only be one mutable reference to a variable in scope at any one time. Secondly there cannot be any immutable references to the value if a mutable reference exists and is in scope. This is because users of the immutable reference are not expecting the value to suddenly change.
 
-```rust{8}
+```rust
 fn main(){
     let s1 = String::from("hello");
 
