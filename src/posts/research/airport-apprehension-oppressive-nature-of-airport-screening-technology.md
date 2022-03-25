@@ -8,9 +8,9 @@ header_img_alt: 'picture of airport passport sign'
 share_img: '/img/airport.jpg'
 share_desc: In this article I will analyze biometric systems at use in the airport, their colonial origins and the biases they operate on. Despite widespread trust by governments and airport authorities on these systems, I attempt to show the impact of these systems to perpetrate feelings of anxiety and stuckedness on racialized travellers.
 tags:
-  - 'AI'
+  - 'airport'
   - 'AI Bias'
-  - 'Surveillance'
+  - 'surveillance'
 excerpt: In this article I will analyze biometric systems at use in the airport, their colonial origins and the biases they operate on. Despite widespread trust by governments and airport authorities on these systems, I attempt to show the impact of these systems to perpetrate feelings of anxiety and stuckedness on racialized travellers.
 ---
 
