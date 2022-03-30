@@ -10,6 +10,7 @@ share_desc: In this essay, I look over the literature discussing ethics of emoti
 tags:
   - 'AI'
   - 'AI Bias'
+  - 'Fairness'
   - 'Emotion'
 excerpt: In this essay, I look over the literature discussing ethics of emotion detection and recognition technology (EDR). I go over the views of emotion held by psychologists, philosophers and scientists. I discuss how one perspective based on basic emotion theory, "the common view", would become the most popular view and despite criticisms, how it go on to become intertwined with technology
 ---
