@@ -11,12 +11,10 @@ eleventyNavigation:
 
 Hi, my name is Rohan. :wave: My pronouns are _they / them_.
 
-I am a Bangladeshi Frontend Web Developer. I love web technology and learning new things. and I wish to help create an accessible web for everyone.
+:pencil2: I am a Masters in Computing student at Queen’s University, Canada and am originally from Dhaka, Bangladesh. My research interests involve the ethics and fairness of AI and technology. I look at technology from a post-colonial, anti-racist and anti-queerphobic lens and aspire to see a world where technology can be tools that benefit marginalized communities.
 
-:zap: Currently I am working at [XenWorks](https://xen.works/), a startup in Dhaka developing retail solutions. At work I mainly use Typescript and React along with TailwindCSS sprinkled in. I specialize in creating beautiful UI.
-
-:pencil2: I also love researching into AI and AI ethics (as much as one can 'love' prophecizing the AI apocalypse). I wish to one day see a world where the information is more transparent as to the capabilities of AI, and we use the technology in a more responsible manner.
+:zap: Previously I have worked as a Fronted Web Developer at [XenWorks](https://xen.works/), a startup in Dhaka developing retail solutions. I mainly used Typescript and React along with TailwindCSS sprinkled in to create beautiful UI and UX.
 
 :sparkle: I also _LOVE_ to cook. I love experimenting with new dishes and techniques and post everything I do on my [Instagram](https://www.instagram.com/rohanroasts/).
 
-If you want to contact me for professional reasons, [my email](mailto:rohankhan170@gmail.com) is the best place to reach me.
+If you want to contact me, [my email](mailto:rohankhan170@gmail.com) is the best place to reach me.
