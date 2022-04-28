@@ -3,6 +3,14 @@
   list-style: none;
 }
 
+.postlist li article {
+  max-height: 32rem;
+  overflow-y: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .post-heading {
   display: inline-block;
   margin-top: 0.4em;
@@ -13,6 +21,10 @@
   font-style: italic;
   font-size: 0.8em;
   margin-top: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .post-date {

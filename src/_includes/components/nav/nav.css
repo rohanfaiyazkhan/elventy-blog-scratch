@@ -32,6 +32,7 @@ nav a {
 
 .nav-home > a {
   color: var(--secondary-dark);
+  border-radius: 4px;
   transition: color 0.25s linear;
   display: flex;
   align-items: center;
@@ -45,8 +46,22 @@ nav a {
   color: var(--gray-300);
 }
 
+.nav-item > a {
+  border-radius: 4px;
+}
+
+.nav-item > a:hover {
+  background-color: var(--primary-dark-hover);
+}
+
 .nav-desktop {
   display: none;
+}
+
+.nav-desktop .triangle-accent {
+  position: absolute;
+  left: 1.8em;
+  bottom: 0;
 }
 
 .nav-mobile {
@@ -55,6 +70,7 @@ nav a {
 
 @media (min-width: 768px) {
   .nav-desktop {
+    position: relative;
     display: flex;
     align-items: center;
   }

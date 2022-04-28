@@ -2,13 +2,14 @@
     {% for post in postslist | reverse %}
         <li>
             <article>
-                <h3 class="post-heading">
-                    <a href={{post.url | url}}>{{post.data.title}}</a>
-                </h3>
-                <p class="post-date">Written on {{post.date | readableDate}}</p>
-                {% set tags = post.data.tags %}
-                {% include "components/tagslist/tagslist.njk" %}
-
+                <div>
+                    <h3 class="post-heading">
+                        <a href={{post.url | url}}>{{post.data.title}}</a>
+                    </h3>
+                    <p class="post-date">Written on {{post.date | readableDate}}</p>
+                    {% set tags = post.data.tags %}
+                    {% include "components/tagslist/tagslist.njk" %}
+                </div>
                 {%- if post.data.excerpt %}
                     <p class="post-excerpt">{{ post.data.excerpt | toHTML | safe}}</p>
                 {% elif post.data.page.excerpt -%}

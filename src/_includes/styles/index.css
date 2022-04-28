@@ -1,6 +1,7 @@
 :root {
   --primary-default: hsla(330, 72%, 40%, 1);
   --primary-dark: hsla(306.5, 79%, 15.6%, 1);
+  --primary-dark-hover: hsla(306.5, 79%, 20%, 1);
   --primary-light: hsla(330, 53%, 85%, 1);
   --secondary-dark: hsla(53, 70%, 76%, 1);
   --secondary-default: #f0a61d;
