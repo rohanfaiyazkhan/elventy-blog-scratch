@@ -14,6 +14,7 @@
   --font-sans: 'Noto Sans', sans-serif;
   --text-hover: hsla(330, 100%, 94%, 1);
   --text-focus: hsla(330, 100%, 88%, 1);
+  --breakpoint-lg: 1024px;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
 body > main {
   flex-grow: 1;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .font-heading {
@@ -38,7 +40,7 @@ body > main {
 .container {
   --p-x: 1rem;
   --p-y: 0.25rem;
-  --max-w: 1024px;
+  --max-w: var(--breakpoint-lg);
   max-width: var(--max-w);
   padding: var(--p-y) var(--p-x);
   margin: 0 auto;
@@ -262,4 +264,26 @@ video {
   margin-bottom: 0.5em;
   font-size: 16px;
   font-style: italic;
+}
+
+.lg-screen-bg-svg {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .lg-screen-bg-svg {
+    display: block;
+    position: absolute;
+    opacity: 0.2;
+  }
+
+  #lg-screen-bg-svg-1 {
+    top: 40%;
+    left: -120px;
+  }
+
+  #lg-screen-bg-svg-2 {
+    top: 70%;
+    right: -120px;
+  }
 }
