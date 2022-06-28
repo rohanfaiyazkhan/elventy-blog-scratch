@@ -71,7 +71,8 @@ body > main {
   margin-top: 1rem;
 }
 
-.research-posts {
+.research-posts,
+.tech-posts {
   border-bottom: 1px solid var(--primary-light);
 }
 
