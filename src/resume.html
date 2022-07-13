@@ -5,11 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Resume | Rohan Faiyaz Khan</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,500;1,700&display=swap"
-        rel="stylesheet">
     <style>
         /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
         :root {
@@ -255,6 +250,12 @@
             }
         }
 
+        .space-y-1>:not([hidden])~:not([hidden]) {
+            --tw-space-y-reverse: 0;
+            margin-bottom: calc(.25rem*var(--tw-space-y-reverse));
+            margin-top: calc(.25rem*(1 - var(--tw-space-y-reverse)))
+        }
+
         .space-y-2>:not([hidden])~:not([hidden]) {
             --tw-space-y-reverse: 0;
             margin-bottom: calc(.5rem*var(--tw-space-y-reverse));
@@ -275,10 +276,6 @@
             border-radius: .125rem
         }
 
-        .border-r {
-            border-right-width: 1px
-        }
-
         .border-b {
             border-bottom-width: 1px
         }
@@ -295,6 +292,10 @@
             display: grid
         }
 
+        .hidden {
+            display: none
+        }
+
         .flex-col {
             flex-direction: column
         }
@@ -307,8 +308,8 @@
             justify-self: end
         }
 
-        .font-body {
-            font-family: Montserrat, sans-serif
+        .font-sans {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji
         }
 
         .font-normal {
@@ -321,11 +322,6 @@
 
         .h-2 {
             height: .5rem
-        }
-
-        .text-xs {
-            font-size: .75rem;
-            line-height: 1rem
         }
 
         .text-sm {
@@ -343,9 +339,9 @@
             line-height: 1.75rem
         }
 
-        .text-2xl {
-            font-size: 1.5rem;
-            line-height: 2rem
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem
         }
 
         .list-disc {
@@ -396,14 +392,6 @@
             padding-top: .5rem
         }
 
-        .pt-4 {
-            padding-top: 1rem
-        }
-
-        .pr-4 {
-            padding-right: 1rem
-        }
-
         .pb-4 {
             padding-bottom: 1rem
         }
@@ -432,6 +420,10 @@
             bottom: -.25rem
         }
 
+        .right-1\/2 {
+            right: 50%
+        }
+
         * {
             --tw-shadow: 0 0 #0000;
             --tw-ring-inset: var(--tw-empty,
@@ -455,13 +447,14 @@
             color: rgba(75, 85, 99, var(--tw-text-opacity))
         }
 
+        .hover\:text-blue-800:hover {
+            --tw-text-opacity: 1;
+            color: rgba(30, 64, 175, var(--tw-text-opacity))
+        }
+
         .focus\:text-gray-700:focus {
             --tw-text-opacity: 1;
             color: rgba(55, 65, 81, var(--tw-text-opacity))
-        }
-
-        .italic {
-            font-style: italic
         }
 
         .w-2 {
@@ -488,12 +481,12 @@
             grid-column: span 3/span 3
         }
 
-        .col-span-4 {
-            grid-column: span 4/span 4
-        }
-
         .col-span-5 {
             grid-column: span 5/span 5
+        }
+
+        .col-span-8 {
+            grid-column: span 8/span 8
         }
 
         .col-start-1 {
@@ -502,10 +495,6 @@
 
         .col-start-2 {
             grid-column-start: 2
-        }
-
-        .col-start-5 {
-            grid-column-start: 5
         }
 
         .col-start-6 {
@@ -518,10 +507,6 @@
 
         .row-span-3 {
             grid-row: span 3/span 3
-        }
-
-        .row-start-2 {
-            grid-row-start: 2
         }
 
         .row-start-3 {
@@ -543,6 +528,10 @@
             transition-duration: .15s;
             transition-property: background-color, border-color, color, fill, stroke;
             transition-timing-function: cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .duration-75 {
+            transition-duration: 75ms
         }
 
         @-webkit-keyframes spin {
@@ -619,6 +608,66 @@
             }
         }
 
+        @media (min-width:768px) {
+            .md\:space-y-0>:not([hidden])~:not([hidden]) {
+                --tw-space-y-reverse: 0;
+                margin-bottom: calc(0px*var(--tw-space-y-reverse));
+                margin-top: calc(0px*(1 - var(--tw-space-y-reverse)))
+            }
+
+            .md\:border-r {
+                border-right-width: 1px
+            }
+
+            .md\:border-b {
+                border-bottom-width: 1px
+            }
+
+            .md\:block {
+                display: block
+            }
+
+            .md\:grid {
+                display: grid
+            }
+
+            .md\:hidden {
+                display: none
+            }
+
+            .md\:pt-2 {
+                padding-top: .5rem
+            }
+
+            .md\:pr-4 {
+                padding-right: 1rem
+            }
+
+            .md\:pl-4 {
+                padding-left: 1rem
+            }
+
+            .md\:right-0 {
+                right: 0
+            }
+
+            .md\:-right-1 {
+                right: -.25rem
+            }
+
+            .md\:-left-1 {
+                left: -.25rem
+            }
+
+            .md\:gap-4 {
+                gap: 1rem
+            }
+
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+        }
+
         @media (min-width:1024px) {
             .lg\:py-8 {
                 padding-bottom: 2rem;
@@ -636,9 +685,9 @@
 </head>
 
 <body>
-    <main class="w-full max-w-screen-lg font-body grid grid-cols-8 px-4 mx-auto py-4 lg:py-8 xl:py-16">
-        <header class="col-span-5 border-b border-r border-gray-500 pr-4 pb-4 relative">
-            <h1 class="font-bold text-2xl mb-6">
+    <main class="w-full max-w-screen-lg md:grid grid-cols-8 px-4 mx-auto py-4 lg:py-8 xl:py-16 font-sans">
+        <header class="col-span-5 md:border-b md:border-r border-gray-500 pb-4 md:pr-4 relative">
+            <h1 class="font-bold text-3xl mb-6">
                 Rohan Faiyaz Khan
             </h1>
             <p class="text-base font-normal">
@@ -651,10 +700,9 @@
                 to work
                 with an amazing team that helps me grow and learn while making incredible software.
 
-            <div aria-hidden="" class="absolute w-2 h-2 rounded-sm -right-1 -bottom-1 bg-gray-700" style="content: ' '">
-            </div>
+
         </header>
-        <aside class="col-span-3 border-b border-gray-500 pl-4 pb-4">
+        <aside class="relative col-span-3 border-b border-gray-500 md:pl-4 pb-4">
             <div class="flex-col space-y-2  mb-4 text-sm">
                 <a href="https://rohanfaiyaz.com"
                     class="social-icon grid text-gray-900 hover:text-gray-600 focus:text-gray-700 transition-colors"
@@ -724,10 +772,16 @@
                     Handling and Caching, Unit Testing and Mocking</li>
                 <li><strong>Things I dabble with: </strong> Rust-WASM, Python, Figma</li>
             </ul>
+
+            <div aria-hidden=""
+                class="absolute w-2 h-2 rounded-sm -bottom-1 right-1/2 md:right-0 md:-left-1 bg-gray-700"
+                style="content: ' ';">
+            </div>
         </aside>
 
-        <section class="relative pr-4 col-span-4 col-start-1 border-r border-gray-500">
-            <div aria-hidden="" class="absolute w-2 h-2 rounded-sm -right-1 -top-1 bg-gray-700" style="content: ' '">
+        <section class="relative md:pr-4 pb-4 col-span-5 col-start-1 md:border-r border-b border-gray-500">
+            <div aria-hidden="" class="hidden md:block absolute w-2 h-2 rounded-sm -right-1 -top-1 bg-gray-700"
+                style="content: ' '">
             </div>
 
             <h2 class="font-bold text-xl my-2">Work Experience</h2>
@@ -759,31 +813,53 @@
                         CRUD web app that helped them manage users and doctors.
                     </p>
                 </li>
+                <li>
+                    <p class="font-bold" style="page-break-inside: auto;">Other roles:</p>
+                    <p class="text-sm">Graduate Teaching Assistant, Queen's University <em>(Sep 2021 - May 2022)</em>
+                    </p>
+                    <p class="text-sm">Software Engineering Intern, Ebahn Solutions Sdn Bhd <em>(July 2017 - Nov
+                            2017)</em></p>
+
+                </li>
             </ul>
+            <div aria-hidden="" class="absolute w-2 h-2 rounded-sm right-1/2 md:-right-1 -bottom-1 bg-gray-700"
+                style="content: ' '">
+            </div>
 
         </section>
-        <section class="relative pr-4 pb-4 col-span-4 col-start-1 border-r border-gray-500">
-            <p class="font-bold" style="page-break-inside: auto;">Other roles:</p>
-            <p class="text-sm">Graduate Teaching Assistant, Queen's University <em>(Sep 2021 - May 2022)</em>
-            </p>
-            <p class="text-sm">Software Engineering Intern, Ebahn Solutions Sdn Bhd <em>(July 2017 - Nov
-                    2017)</em></p>
 
-            <div aria-hidden="" class="absolute w-2 h-2 rounded-sm -right-1 -bottom-1 bg-gray-700" style="content: ' '">
+        <section class="relative md:pl-4 pb-4 col-span-3 border-b border-gray-500">
+            <h2 class="font-bold text-xl my-2">Education</h2>
+            <ul class="flex flex-col space-y-2">
+                <li class="grid" style="grid-template-columns: 2fr 1fr;">
+                    <span class="font-bold">MSc. in Computing</span>
+                    <span class="row-span-2 col-start-2 self-center justify-self-end text-sm">2021-present</span>
+                    <span class="text-sm">Queen's University, Kingston, Ontario, Canada</span>
+                    <span class="text-sm">CGPA: 4.23/4.3</span>
+                </li>
+                <li class="grid" style="grid-template-columns: 2fr 1fr;">
+                    <span class="font-bold">BEng. in Electronic Engineering</span>
+                    <span class="row-span-2 col-start-2 self-center justify-self-end text-sm">2014-2018</span>
+                    <span class="text-sm">Multimedia University, Cyberjaya, Malaysia</span>
+                    <span class="text-sm">CGPA: 3.87/4</span>
+                </li>
+            </ul>
+            <div aria-hidden="" class="md:hidden absolute w-2 h-2 rounded-sm right-1/2 -bottom-1 bg-gray-700"
+                style="content: ' '">
             </div>
         </section>
 
 
-        <section class="pt-4 pl-4 col-span-4 col-start-5 row-start-2 row-span-3">
-
-
+        <section class="md:pt-2 col-span-8 col-start-1 row-start-3 row-span-3">
             <h2 class="font-bold text-xl my-2">Personal Projects</h2>
-            <ul>
+            <ul class="flex flex-col space-y-1 md:space-y-0 md:grid md:grid-cols-2 md:gap-4">
                 <li>
                     <p class="font-bold">React Pokedex</p>
-                    <p class="text-xs italic mb-2"><a href="https://github.com/rohanfaiyazkhan/react-pokedex">Github:
+                    <p class="text-sm mb-2"><a
+                            class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
+                            href="https://github.com/rohanfaiyazkhan/react-pokedex">Github:
                             github.com/rohanfaiyazkhan/react-pokedex</a></p>
-                    <p class="text-sm">While still incomplete, this project showcases how I think about
+                    <p>While still incomplete, this project showcases how I think about
                         organizing a React project, caching network requests to local storage to limit network calls,
                         using typing hints
                         even without Typescript using JSDocs, and mocking network calls for testing purposes
@@ -791,33 +867,39 @@
                 </li>
                 <li>
                     <p class="font-bold">Personal Blog</p>
-                    <p class="text-xs italic"><a href="https://github.com/rohanfaiyazkhan/rohanfaiyaz-new">Github:
+                    <p class="text-sm"><a class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
+                            href="https://github.com/rohanfaiyazkhan/rohanfaiyaz-new">Github:
                             github.com/rohanfaiyazkhan/rohanfaiyaz-new</a></p>
-                    <p class="text-xs italic mb-2"><a href="https://rohanfaiyaz.com">Website:
+                    <p class="text-sm mb-2"><a
+                            class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
+                            href="https://rohanfaiyaz.com">Website:
                             rohanfaiyaz.com</a></p>
-                    <p class="text-sm">Static site generated using 11ty.js and Nunjucks for templating.
+                    <p>Static site generated using 11ty.js and Nunjucks for templating.
                         Shows some ideas on making a website simple yet also leave a unique identity. Also please
                         check out some of my blog posts.</p>
 
                 </li>
                 <li>
                     <p class="font-bold">Material Design Button Ripple Effect</p>
-                    <p class="text-xs italic"><a
+                    <p class="text-sm"><a class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
                             href="https://github.com/rohanfaiyazkhan/react-material-design-ripple-effect">Github:
                             github.com/rohanfaiyazkhan/react-material-design-ripple-effect</a></p>
-                    <p class="text-xs italic mb-2"><a href="https://rohanfaiyaz.com/posts/tech/let-it-ripple/">Blog
+                    <p class="text-sm mb-2"><a
+                            class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
+                            href="https://rohanfaiyaz.com/posts/tech/let-it-ripple/">Blog
                             post: rohanfaiyaz.com/posts/tech/let-it-ripple/</a></p>
-                    <p class="text-sm">This project grew out of my attempt to implement Material Design Spec's ripple
+                    <p>This project grew out of my attempt to implement Material Design Spec's ripple
                         effect and not finiding a simple clean implementation, hence I wrote one myself and uploaded the
                         explanation on my blog
                     </p>
                 </li>
                 <li>
                     <p class="font-bold">Accessible Autocomplete</p>
-                    <p class="text-xs italic"><a
+                    <p class="text-sm"><a class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
                             href="https://github.com/rohanfaiyazkhan/vanillajs-accessible-autocomplete">Github:
                             github.com/rohanfaiyazkhan/vanillajs-accessible-autocomplete</a></p>
-                    <p class="text-xs italic mb-2"><a
+                    <p class="text-sm mb-2"><a
+                            class="hover:text-blue-800 focus:text-gray-700 transition-colors duration-75"
                             href="https://rohanfaiyaz.com/posts/tech/how-to-make-accesible-autocomplete/">Blog
                             post: rohanfaiyaz.com/posts/tech/how-to-make-accesible-autocomplete/</a></p>
                     <p class="text-sm">This project was a result of my frustration with library and framework
@@ -830,23 +912,7 @@
             </ul>
         </section>
 
-        <section class="pr-4 col-span-4 col-start-1  border-r border-gray-500">
-            <h2 class="font-bold text-xl">Education</h2>
-            <ul class="flex flex-col space-y-2 pb-4">
-                <li class="grid" style="grid-template-columns: 2fr 1fr;">
-                    <span class="font-bold">MSc. in Computing</span>
-                    <span class="row-span-2 col-start-2 self-center justify-self-end text-sm">2021-present</span>
-                    <span class="text-sm">Queen's University, Kingston, Ontario, Canada</span>
-                    <span class="text-sm">CGPA: 4.2/4.3</span>
-                </li>
-                <li class="grid" style="grid-template-columns: 2fr 1fr;">
-                    <span class="font-bold">BEng. in Electronic Engineering</span>
-                    <span class="row-span-2 col-start-2 self-center justify-self-end text-sm">2014-2018</span>
-                    <span class="text-sm">Multimedia University, Cyberjaya, Malaysia</span>
-                    <span class="text-sm">CGPA: 3.87/4</span>
-                </li>
-            </ul>
-        </section>
+
 
         <!-- <section class="pl-4 col-span-3 col-start-6 row-start-3">
 
